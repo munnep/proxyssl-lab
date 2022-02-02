@@ -1,0 +1,13 @@
+[Unit]
+Description=mitmdump service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/mitmweb --no-web-open-browser --listen-port=8080 --web-host=0.0.0.0  --mode regular --showhost
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
